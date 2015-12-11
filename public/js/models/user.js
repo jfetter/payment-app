@@ -10,4 +10,6 @@ app.service('User', function($http, ENV) {
     return $http.post(ENV.API_URL + 'users/login', user);
   }
 
+  
+
 });

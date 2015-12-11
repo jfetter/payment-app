@@ -4,6 +4,10 @@ html(lang='en')
     title= title
     link(href='/vendor/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
     link(href='/vendor/sweetalert/dist/sweetalert.css', rel='stylesheet')
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    script(src='/vendor/angular/angular.min.js')
+    script(src='/vendor/angular-ui-router/release/angular-ui-router.min.js')
+    script(src='/vendor/ngstorage/ngStorage.min.js')
   body(ng-app='paymentApp')
     nav.navbsar.navbar-default(ng-controller='navCtrl')
       .container-fluid
@@ -17,22 +21,24 @@ html(lang='en')
         #nav-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a(ui-sref='register')#registerLink Register
+              a(ng-hide="loggedIn()" ui-sref='register')#registerLink Register
             li
-              a(ui-sref='login')#loginLink Login
+              a(ng-hide="loggedIn()" ui-sref='login')#loginLink Login
             li
-              a#logout(ng-click='logout()') Logout
+              a#logout(ng-show="loggedIn()" ng-click='logout()') Logout
+            li
+              a(ng-show="loggedIn()" ui-sref='product.list') Products
     .container
       ui-view
     
-    script(src='/vendor/jquery/dist/jquery.min.js')
-    script(src='/vendor/angular/angular.min.js')
-    script(src='/vendor/angular-ui-router/release/angular-ui-router.min.js')
-    script(src='/vendor/ngstorage/ngStorage.min.js')
+    
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
     script(src='/vendor/sweetalert/dist/sweetalert.min.js')
     script(src='/js/module.js')
     script(src='/js/models/user.js')
     script(src='/js/controllers/nav.js')
+    script(src="/js/models/product.js")  
+    script(src='/js/controllers/product/listCtrl.js')
+    script(src="js/controllers/product/detailsCtrl.js")  
     script(src='/js/controllers/register.js')
     script(src='/js/controllers/login.js')

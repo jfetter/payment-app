@@ -1,0 +1,41 @@
+<div>
+  <h1 ng-model='productName' type="text" id='username' class="form-control"></h1>
+  <label for="password">Password:</label>
+  <input ng-model='user.password' type="text" id='password' class="form-control"></div>
+List</a>
+
+</div>
+
+<div class="container"> 
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>{{productName}}</h1>
+		</div>
+	</div> <!-- row -->
+
+		<div class="col-sm-8">
+		<!-- 	I believe it is cool to just throw a scope variable inside
+			of a component like this, but I may need to declare the
+			component as an ng-model? --> 
+			<img src="{{productImg}}" alt="" class="productImage">
+		</div>
+		<div class="col-sm-4">
+			<span class="itemDescirpt">{{productDescript}}</span>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<span>{{productPrice}}</span>
+			</div>
+			<div class="col-sm-4">
+				<a class="btn btn-default" ui-sref="product.list" id="backToList">
+					Back To Product
+				</a> 
+			</div>
+			<div class="col-sm-4"> 
+						<!-- purchase form directive from stripe goes here 
+	https://github.com/tobyn/angular-stripe-checkout text should be "add to cart" --> 
+				</div>
+		</div>
+
+
+</div>

@@ -1,0 +1,15 @@
+<h1>LIST PAGE</h1>
+
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Product</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr ng-repeat="product in products track by $index" ui-sref="product.details({productId: product._id})">
+				<td>{{product.itemName}}</td>
+				<td>{{product.itemPrice}}</td>
+			</tr>
+	</tbody>
+</table>
